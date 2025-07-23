@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instituto de Arte Joias do Futuro - Pré-visualização</title>
+    
+    <!-- Importando a fonte do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- Variáveis de Cor e Fontes --- */
+        :root {
+            --cor-primaria: #005A9C; /* Azul profundo e confiável */
+            --cor-secundaria: #029E73; /* Verde esperança */
+            --cor-acao: #FDB813; /* Amarelo/Laranja para botões de ação (Doar) */
+            --cor-texto: #333333;
+            --cor-fundo: #FFFFFF;
+            --cor-fundo-leve: #f8f9fa;
+            --fonte-principal: 'Inter', sans-serif;
+            --fonte-titulos: 'Inter', sans-serif;
+        }
+
+        /* --- Reset Básico e Padrões Globais --- */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--fonte-principal);
+            color: var(--cor-texto);
+            background-color: var(--cor-fundo);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Tipografia --- */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--fonte-titulos);
+            font-weight: 700;
+            color: var(--cor-primaria);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        h1 { font-size: 3.2rem; }
+        h2 { font-size: 2.5rem; }
+        h3 { font-size: 1.5rem; }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: var(--cor-secundaria);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--cor-primaria);
+        }
+
+        /* --- Cabeçalho --- */
+        .site-header {
+            background-color: var(--cor-fundo);
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-title a {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--cor-primaria);
+            text-decoration: none;
+        }
+
+        .main-navigation ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .main-navigation a {
+            font-weight: 600;
+            color: var(--cor-primaria);
+            text-decoration: none;
+            padding: 5px 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .main-navigation a:hover {
+            color: var(--cor-secundaria);
+            border-bottom-color: var(--cor-secundaria);
+        }
+
+        /* --- Botões --- */
+        .btn {
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-doar {
+            background-color: var(--cor-acao);
+            color: #333;
+            margin-left: 20px;
+        }
+
+        .btn-doar:hover {
+            background-color: #ffc94d;
+            color: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .btn-secundario {
+            background-color: var(--cor-secundaria);
+            color: #fff;
+        }
+
+        .btn-secundario:hover {
+            background-color: #02b383;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* --- Seções da Página --- */
+        .section {
+            padding: 5rem 0;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* --- 2. Seção Principal (Hero) --- */
+        .hero {
+            padding: 6rem 0;
+            text-align: center;
+            background: linear-gradient(rgba(0, 90, 156, 0.7), rgba(0, 90, 156, 0.7)), url('https://placehold.co/1400x700/005A9C/FFFFFF?text=Imagem+de+crian%C3%A7a+sorrindo') no-repeat center center;
+            background-size: cover;
+            color: white;
+        }
+
+        .hero h1 {
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 1rem auto 2rem;
+            color: rgba(255,255,255,0.9);
+        }
+
+        /* --- 3. Seção "Nossa Missão" --- */
+        .mission-section .content-wrapper {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+        .mission-section .text-column {
+            flex: 1;
+        }
+        .mission-section .image-column {
+            flex: 1;
+        }
+        .mission-section img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* --- 4. Seção "Como Ajudar" --- */
+        .help-section {
+            background-color: var(--cor-fundo-leve);
+        }
+        .help-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .help-item {
+            background: #fff;
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .help-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .help-item .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .help-item h3 {
+            color: var(--cor-secundaria);
+        }
+        .help-item p {
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* --- 5. Seção "Jornada do Fundador" --- */
+        .founder-section {
+            background-color: var(--cor-primaria);
+            color: white;
+            text-align: center;
+        }
+        .founder-section h2, .founder-section p {
+            color: white;
+        }
+        .founder-section p {
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        .founder-section .btn {
+            margin-top: 1.5rem;
+            background-color: var(--cor-acao);
+            color: #333;
+        }
+        .founder-section .btn:hover {
+            background-color: #fff;
+        }
+
+        /* --- 6. Seção de Notícias --- */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .news-item {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .news-item:hover {
+            transform: translateY(-5px);
+        }
+        .news-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .news-item .content {
+            padding: 1.5rem;
+        }
+        .news-item h3 {
+            font-size: 1.2rem;
+        }
+        .news-item p {
+            font-size: 0.9rem;
+        }
+        .news-item a {
+            font-weight: 600;
+        }
+        .news-section .text-center {
+            margin-top: 3rem;
+        }
+
+        /* --- 7. Rodapé --- */
+        .site-footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 4rem 0 2rem;
+            margin-top: 4rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .footer-column h4 {
+            color: var(--cor-acao);
+            margin-bottom: 1.5rem;
+        }
+        .footer-column ul {
+            list-style: none;
+        }
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+        .footer-column a {
+            color: #ecf0f1;
+            text-decoration: none;
+        }
+        .footer-column a:hover {
+            color: var(--cor-acao);
+            text-decoration: underline;
+        }
+        .footer-socials a {
+            margin-right: 1rem;
+            font-size: 1.5rem;
+        }
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* --- Media Queries para Responsividade --- */
+        @media (max-width: 992px) {
+            .mission-section .content-wrapper {
+                flex-direction: column;
+            }
+            .help-grid, .news-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .main-navigation ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            .btn-doar {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+            .help-grid, .news-grid, .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- 1. CABEÇALHO -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="site-title">
+                    <a href="#">Instituto Joias do Futuro</a>
+                </div>
+                <nav class="main-navigation">
+                    <ul>
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#missao">Quem Somos</a></li>
+                        <li><a href="#">Projetos</a></li>
+                        <li><a href="#noticias">Notícias</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                    <a href="#" class="btn btn-doar">Doe Agora</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- 2. SEÇÃO PRINCIPAL (HERO) -->
+        <section id="inicio" class="hero">
+            <div class="container">
+                <h1>Bem-vindo ao Espetáculo da Transformação!</h1>
+                <p>Usando a arte circense para transformar vidas e construir futuros brilhantes para crianças e jovens na comunidade Nova Holanda.</p>
+                <a href="#ajudar" class="btn btn-secundario">Faça Parte da Mudança</a>
+            </div>
+        </section>
+
+        <!-- 3. SEÇÃO "NOSSA MISSÃO" -->
+        <section id="missao" class="section mission-section">
+            <div class="container">
+                <div class="content-wrapper">
+                    <div class="text-column">
+                        <h2>Empoderando Sonhos Através da Arte</h2>
+                        <p>Nosso propósito é ser um ponto de referência na comunidade, apoiando crianças e jovens a descobrir seus talentos, desenvolver habilidades artísticas e, acima de tudo, acreditar em si mesmos. Acreditamos que a transformação que o circo pode oferecer é incrível e que, ao proporcionar uma educação artística de qualidade, o futuro deles será tão brilhante quanto as joias mais preciosas.</p>
+                        <a href="#" class="btn btn-secundario">Conheça Nossa História</a>
+                    </div>
+                    <div class="image-column">
+                        <img src="https://placehold.co/500x350/029E73/FFFFFF?text=Nossos+Projetos" alt="[Imagem de Elon e Débora com as crianças]">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. SEÇÃO "COMO AJUDAR" -->
+        <section id="ajudar" class="section help-section">
+            <div class="container">
+                <h2 class="section-title">Sua Ajuda Constrói o Futuro</h2>
+                <div class="help-grid">
+                    <div class="help-item">
+                        <div class="icon">❤️</div>
+                        <h3>Faça uma Doação</h3>
+                        <p>Sua contribuição financeira mantém nossos projetos vivos e expande nosso alcance.</p>
+                        <a href="#" class="btn btn-doar">Quero Doar</a>
+                    </div>
+                    <div class="help-item">
+                        <div class="icon">🤝</div>
+                        <h3>Seja um Voluntário</h3>
+                        <p>Doe seu tempo e talento. Sua presença faz a diferença no dia a dia dos nossos jovens.</p>
+                        <a href="#" class="btn btn-secundario">Seja Voluntário</a>
+                    </div>
+                    <div class="help-item">
+                        <div class="icon">📣</div>
+                        <h3>Divulgue a Causa</h3>
+                        <p>Siga-nos e compartilhe nosso trabalho. Sua voz amplifica nossa mensagem de esperança.</p>
+                        <a href="#" class="btn btn-secundario">Siga-nos</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. SEÇÃO "JORNADA DO FUNDADOR" -->
+        <section id="fundador" class="section founder-section">
+            <div class="container">
+                <h2>A Jornada que Deu Vida ao Sonho</h2>
+                <p>Da Nova Holanda para o mundo, e de volta para transformar sua própria comunidade. Conheça a inspiradora trajetória de nosso fundador, Elon Souza da Silva, um artista que transformou desafios em um palco para a esperança.</p>
+                <a href="#" class="btn">Leia a História Completa</a>
+            </div>
+        </section>
+
+        <!-- 6. SEÇÃO DE NOTÍCIAS -->
+        <section id="noticias" class="section news-section">
+            <div class="container">
+                <h2 class="section-title">Fique por Dentro</h2>
+                <div class="news-grid">
+                    <div class="news-item">
+                        <img src="https://placehold.co/400x200/005A9C/FFFFFF?text=Evento+na+Comunidade" alt="[Imagem de evento na comunidade]">
+                        <div class="content">
+                            <h3>Oficina de Malabares agita o fim de semana</h3>
+                            <p>Jovens da comunidade aprenderam novas técnicas e se divertiram em nosso último evento...</p>
+                            <a href="#">Leia mais &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="news-item">
+                        <img src="https://placehold.co/400x200/029E73/FFFFFF?text=Apresenta%C3%A7%C3%A3o+Circense" alt="[Imagem de apresentação circense]">
+                        <div class="content">
+                            <h3>Instituto realiza apresentação especial de fim de ano</h3>
+                            <p>Nossos alunos brilharam no palco e emocionaram a plateia com um espetáculo inesquecível...</p>
+                            <a href="#">Leia mais &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="news-item">
+                        <img src="https://placehold.co/400x200/FDB813/333333?text=Nova+Parceria" alt="[Imagem de aperto de mãos]">
+                        <div class="content">
+                            <h3>Nova parceria irá expandir nossas atividades</h3>
+                            <p>Com o apoio da Empresa X, poderemos atender ainda mais crianças em 2025...</p>
+                            <a href="#">Leia mais &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <a href="#" class="btn btn-secundario">Ver Todas as Notícias</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 7. RODAPÉ -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>Joias do Futuro</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.6; opacity: 0.8;">O espetáculo da transformação.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Navegue</h4>
+                    <ul>
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#missao">Quem Somos</a></li>
+                        <li><a href="#">Projetos</a></li>
+                        <li><a href="#noticias">Notícias</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><a href="#">email@joiasdofuturo.org</a></li>
+                        <li><a href="#">(21) 99999-8888</a></li>
+                        <li><p style="margin:0; opacity: 0.8;">Complexo da Maré, RJ</p></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Siga-nos</h4>
+                    <div class="footer-socials">
+                        <a href="#" title="Instagram">I</a>
+                        <a href="#" title="Facebook">F</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2024 Instituto de Arte Joias do Futuro. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
