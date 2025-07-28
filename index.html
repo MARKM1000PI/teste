@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joias do Futuro - Animação Gráfica</title>
+    <title>Arsenal de Prompts de IA - Sua Nova Arma Secreta</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -11,26 +11,38 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Custom Styles and Tailwind Config -->
     <style>
         body {
             background-color: #0c0a09; /* stone-950 */
-            color: #f1f5f9; /* slate-100 */
+            color: #f8fafc; /* slate-50 */
         }
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        'poppins': ['"Poppins"', 'sans-serif'],
+                        'inter': ['"Inter"', 'sans-serif'],
                     },
                     colors: {
                         'fundo-escuro': '#0c0a09',
-                        'texto-claro': '#f1f5f9',
-                        'amarelo-brilho': '#facc15', /* yellow-400 */
-                        'magenta-arte': '#c026d3', /* fuchsia-600 */
-                        'ciano-tech': '#0891b2', /* cyan-600 */
+                        'texto-claro': '#f8fafc',
+                        'texto-secundario': '#a1a1aa', /* zinc-400 */
+                        'roxo-brilhante': '#a855f7', /* purple-500 */
+                        'roxo-hover': '#9333ea', /* purple-600 */
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
                     }
                 }
             }
@@ -40,61 +52,129 @@
             top: 0;
             left: 0;
             outline: none;
-            z-index: 0;
+            z-index: 10;
         }
         main {
             position: relative;
-            z-index: 1;
+            z-index: 20;
+            width: 100%;
+            overflow-x: hidden;
         }
         .content-section {
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            align-items: center;
             padding: 2rem;
-            max-width: 550px;
+            max-width: 600px;
+            opacity: 0; 
         }
         .section-left { margin-right: auto; }
         .section-right { margin-left: auto; text-align: right; }
+        .section-full { margin: auto; text-align: left; }
 
-        h1, h2 { font-weight: 900; text-transform: uppercase; letter-spacing: -0.05em; }
-        h1 { font-size: 5rem; line-height: 1; }
-        h2 { font-size: 3.5rem; line-height: 1.1; }
-        p { font-size: 1.125rem; line-height: 1.75; opacity: 0.8; }
+
+        h1, h2, h3 { font-weight: 900; line-height: 1.1; }
+        h1 { font-size: 3.5rem; }
+        h2 { font-size: 2.25rem; }
+        h3 { font-size: 1.5rem; color: #f8fafc; margin-top: 2rem; }
+        p, li { font-size: 1.125rem; line-height: 1.75; color: #a1a1aa; }
+        .highlight { color: #a855f7; }
+        .prompt-card {
+            background-color: #18181b;
+            border: 1px solid #27272a;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            margin-top: 1rem;
+        }
     </style>
 </head>
-<body class="font-poppins">
+<body class="font-inter">
 
     <canvas id="webgl-canvas"></canvas>
 
     <main>
-        <section class="content-section section-left" style="min-height: 120vh;">
-            <h1>O Potencial<br>em Estado <span class="text-amarelo-brilho">Bruto</span>.</h1>
-            <p class="mt-4">No coração da comunidade, cada jovem é uma semente de talento, esperando a chance de florescer.</p>
-            <p class="mt-8 text-amarelo-brilho/80 animate-pulse">Role para iniciar a transformação.</p>
+        <!-- MÓDULO 0: A GRANDE IDEIA -->
+        <section id="mod0" class="content-section section-left">
+            <div>
+                <p class="font-bold text-roxo-brilhante">PARA DONOS DE NEGÓCIOS CANSADOS DE "TENTAR DE TUDO"</p>
+                <h1 class="mt-2 text-texto-claro">E se você tivesse um funcionário de marketing genial... de graça?</h1>
+                <p class="mt-6">Você tem um produto incrível, atende bem, mas na hora de divulgar, parece que nada funciona? As redes sociais tomam um tempo precioso e o resultado é quase zero? Eu sei como é. Por isso, criei um guia que te entrega o poder das maiores agências de marketing do mundo. A diferença? Você só precisa saber copiar e colar.</p>
+                <p class="mt-4 font-bold text-texto-claro">Descubra como transformar a Inteligência Artificial na sua arma secreta para atrair clientes todos os dias.</p>
+            </div>
         </section>
 
-        <section class="content-section section-right">
-            <h2>O Despertar<br>pela <span class="text-magenta-arte">Arte</span>.</h2>
-            <p>Com o circo, o teatro e a educação, acendemos a primeira faísca. A arte é a nossa ferramenta para despertar a confiança e a criatividade.</p>
+        <!-- MÓDULO 1: A FÓRMULA -->
+        <section id="mod1" class="content-section section-right">
+            <div>
+                <p class="font-bold text-roxo-brilhante">O SEGREDO NÃO É A FERRAMENTA, É O COMANDO</p>
+                <h2 class="mt-2 text-texto-claro">Aprenda a fórmula para dar ordens e receber resultados.</h2>
+                <p class="mt-6">Pedir "crie um post" para a IA é como pedir para um estagiário "faça marketing". Não funciona. Dentro do guia, você vai dominar a "Fórmula Mágica", uma estrutura de 3 passos para dar ordens que a IA entende e executa com perfeição, criando textos que vendem de verdade.</p>
+                 <div class="mt-6 text-left bg-stone-900 p-4 rounded-lg border border-stone-800">
+                    <p class="text-sm font-mono"><span class="text-roxo-brilhante">[CONTEXTO]</span> + <span class="text-green-400">[TAREFA]</span> + <span class="text-sky-400">[FORMATO/TOM]</span> = <span class="text-amber-400">Resultado Mágico</span></p>
+                </div>
+            </div>
         </section>
 
-        <section class="content-section section-left">
-            <h2>A Lapidação<br>do <span class="text-ciano-tech">Talento</span>.</h2>
-            <p>Cada oficina, cada aula, cada aplauso é um passo na jornada de lapidação. Habilidades são construídas, amizades são forjadas e o potencial começa a tomar forma.</p>
-        </section>
-
-        <section class="content-section section-right">
-            <h2>O Brilho<br>da <span class="text-amarelo-brilho">Joia</span>.</h2>
-            <p>O resultado é uma joia de valor inestimável: um jovem que descobriu seu próprio brilho, pronto para iluminar o mundo com sua arte e sua história.</p>
+        <!-- MÓDULO 2: ATRAÇÃO MASSIVA -->
+        <section id="mod2" class="content-section section-left">
+            <div>
+                <p class="font-bold text-roxo-brilhante">CHEGA DE PASSAR HORAS SEM SABER O QUE POSTAR</p>
+                <h2 class="mt-2 text-texto-claro">Transforme suas redes sociais em uma máquina de atração.</h2>
+                <p class="mt-6">Imagine ter um arsenal de ideias prontas para usar no Instagram e Facebook. Com nossos prompts, você cria em minutos posts de oferta, textos de lançamento, vídeos curtos e legendas que geram conexão real com seu público. Chega de posts que não geram nada, é hora de transformar seguidores em clientes.</p>
+            </div>
         </section>
         
-        <section class="content-section section-left" style="min-height: 120vh;">
-             <h2>Faça Parte<br>Deste <span class="text-white">Legado</span>.</h2>
-            <p class="mt-4">Sua doação é o que mantém a nossa oficina de sonhos funcionando. Junte-se a nós e ajude a lapidar o futuro, uma joia de cada vez.</p>
-            <div class="mt-8 space-x-4">
-                <a href="#" class="bg-amarelo-brilho text-fundo-escuro font-bold py-3 px-8 rounded-lg hover:bg-opacity-80 transition-colors">QUERO DOAR</a>
-                <a href="#" class="border border-white text-white font-bold py-3 px-8 rounded-lg hover:bg-white hover:text-fundo-escuro transition-colors">SER VOLUNTÁRIO</a>
+        <!-- MÓDULO 3: VENDAS NO 1 A 1 -->
+        <section id="mod3" class="content-section section-right">
+            <div>
+                <p class="font-bold text-roxo-brilhante">CADA CONVERSA, UMA VENDA</p>
+                <h2 class="mt-2 text-texto-claro">Converta curiosos em clientes fiéis pelo WhatsApp.</h2>
+                <p class="mt-6">Seu WhatsApp é uma mina de ouro. Com os scripts certos, você vai reativar clientes que sumiram, encantar com um pós-venda memorável e criar ofertas irresistíveis para sua lista de contatos. Tudo de forma pessoal, rápida e sem parecer um robô de spam.</p>
+            </div>
+        </section>
+        
+        <!-- MÓDULO 4: DOMÍNIO LOCAL -->
+        <section id="mod4" class="content-section section-left">
+            <div>
+                <p class="font-bold text-roxo-brilhante">SEJA ENCONTRADO POR QUEM IMPORTA</p>
+                <h2 class="mt-2 text-texto-claro">Coloque seu negócio no mapa do Google.</h2>
+                <p class="mt-6">De que adianta ser o melhor se ninguém te encontra? Aprenda a usar os comandos certos para otimizar seu perfil no Google Meu Negócio, responder avaliações como um profissional e atrair os clientes que estão buscando exatamente o que você vende, aí perto de você.</p>
+            </div>
+        </section>
+
+        <!-- MÓDULO 5: CRIATIVIDADE INFINITA -->
+        <section id="mod5" class="content-section section-right">
+            <div>
+                <p class="font-bold text-roxo-brilhante">O FIM DO BLOQUEIO CRIATIVO</p>
+                <h2 class="mt-2 text-texto-claro">Tenha um gênio criativo no seu bolso.</h2>
+                <p class="mt-6">Precisa de um nome para um novo produto? Ideias de promoção para o próximo feriado? Um slogan que gruda na mente? Com este arsenal, você transforma a IA na sua agência de publicidade particular para ter ideias ilimitadas, sempre que precisar.</p>
+            </div>
+        </section>
+
+        <!-- BÔNUS: FERRAMENTAS EXTRAS -->
+        <section id="bonus" class="content-section section-left">
+             <div>
+                <p class="font-bold text-roxo-brilhante">E AINDA TEM MAIS...</p>
+                <h2 class="mt-2 text-texto-claro">Módulos Bônus Para Você Ir Além.</h2>
+                <p class="mt-6">Vou te entregar o mapa do tesouro: uma lista de ferramentas de IA gratuitas para criar imagens profissionais, narrações para vídeos e muito mais. Além disso, você vai receber o "Prompt Mestre", um único comando capaz de planejar o conteúdo de uma semana inteira para você.</p>
+            </div>
+        </section>
+        
+        <!-- CONCLUSÃO E CTA -->
+        <section id="conclusao" class="content-section section-full text-center min-h-[120vh]">
+            <div>
+                <p class="font-bold text-roxo-brilhante">CHEGA DE DESCULPAS. É HORA DE AGIR.</p>
+                <h1 class="mt-2 text-texto-claro">Você está a um "copiar e colar" de distância de um marketing que funciona.</h1>
+                <p class="mt-6 max-w-2xl mx-auto">Tudo que você precisa para atrair mais clientes, vender mais e ter mais tempo livre está compilado neste guia. Sem termos técnicos, sem complicações. Apenas comandos prontos para usar e transformar seu negócio.</p>
+                <div class="mt-10">
+                    <a href="#" class="bg-roxo-brilhante text-white font-bold text-lg py-4 px-10 rounded-lg hover:bg-roxo-hover transition-all duration-300 transform hover:scale-105 inline-block">
+                        <i class="fa-solid fa-bolt mr-2"></i> GARANTIR MEU ARSENAL AGORA
+                    </a>
+                </div>
+                <div class="mt-16">
+                     <h3 class="text-lg">Sobre o Autor</h3>
+                     <p class="mt-4 text-sm max-w-xl mx-auto">[Seu Nome] é um empreendedor e entusiasta de tecnologia apaixonado por ajudar pequenos negócios a prosperarem na era digital. Vindo da comunidade local, ele acredita que a inovação é a chave para nivelar o jogo e criar oportunidades para todos. Este guia é um reflexo do seu compromisso em democratizar o acesso a estratégias de marketing de ponta.</p>
+                </div>
             </div>
         </section>
     </main>
@@ -119,89 +199,91 @@
         const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('webgl-canvas'), antialias: true, alpha: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.setPixelRatio(window.devicePixelRatio);
-        camera.position.z = 5;
+        camera.position.set(0, 0, 5);
 
         // Lighting
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
-        directionalLight.position.set(5, 5, 5);
-        scene.add(directionalLight);
         const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
         scene.add(ambientLight);
+        const pointLight = new THREE.PointLight(0xffffff, 50, 100);
+        pointLight.position.set(5, 5, 5);
+        scene.add(pointLight);
+        const pointLight2 = new THREE.PointLight(0xa855f7, 100, 100);
+        pointLight2.position.set(-10, -5, -5);
+        scene.add(pointLight2);
 
-        // Geometries
-        const seedGeometry = new THREE.DodecahedronGeometry(1, 0); // Initial simple shape
-        const jewelGeometry = new THREE.IcosahedronGeometry(1.5, 1); // Final complex shape
-
-        // Material
-        const material = new THREE.MeshPhysicalMaterial({
-            color: 0xffffff,
-            metalness: 0.1,
-            roughness: 0.8,
-            transmission: 0,
-            ior: 1.5,
-            thickness: 0.5
+        // 3D Object
+        const material = new THREE.MeshStandardMaterial({ 
+            color: 0xffffff, 
+            metalness: 0.7, 
+            roughness: 0.2,
+            flatShading: true,
         });
-
-        // Main Object
-        const mainObject = new THREE.Mesh(seedGeometry, material);
+        
+        const geometries = [
+            new THREE.BoxGeometry(2, 2, 2),
+            new THREE.OctahedronGeometry(1.5, 0),
+            new THREE.DodecahedronGeometry(1.6, 0),
+            new THREE.IcosahedronGeometry(1.7, 0),
+            new THREE.IcosahedronGeometry(1.8, 1)
+        ];
+        
+        const mainObject = new THREE.Mesh(geometries[0], material);
         scene.add(mainObject);
-
-        // Particles for background effect
-        const particlesGeometry = new THREE.BufferGeometry();
-        const particlesCount = 5000;
-        const posArray = new Float32Array(particlesCount * 3);
-        for (let i = 0; i < particlesCount * 3; i++) {
-            posArray[i] = (Math.random() - 0.5) * 20;
-        }
-        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-        const particlesMaterial = new THREE.PointsMaterial({ size: 0.015, color: 0x666666 });
-        const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
-        scene.add(particlesMesh);
 
         // GSAP Scroll-based Animation
         gsap.registerPlugin(ScrollTrigger);
+        
+        document.querySelectorAll('.content-section').forEach(section => {
+            gsap.fromTo(section, {opacity: 0, y: 20}, {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top 85%',
+                    toggleActions: 'play none none none',
+                }
+            });
+        });
+
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: 'main',
                 start: 'top top',
                 end: 'bottom bottom',
-                scrub: 1, // Smooth scrubbing
+                scrub: 1,
             }
         });
 
-        // 1. Awaken the Seed
-        tl.to(mainObject.rotation, { x: Math.PI * 2, y: Math.PI * 2 }, 0);
-        tl.to(material, { roughness: 0.2, metalness: 0.5 }, 0);
-        tl.to(material.color, { r: 251/255, g: 191/255, b: 36/255 }, 0.25); // to amarelo-brilho
+        tl.to(mainObject.rotation, { x: Math.PI * 2, y: Math.PI * 4, duration: 1 });
 
-        // 2. Lapidation
-        tl.to(mainObject.scale, { x: 1.5, y: 1.5, z: 1.5 }, 0.5);
-        tl.to(material, { transmission: 0.8, ior: 1.8, thickness: 1.0 }, 0.5);
+        function changeGeometry(index) {
+            if (geometries[index] && mainObject.geometry !== geometries[index]) {
+                mainObject.geometry.dispose();
+                mainObject.geometry = geometries[index];
+            }
+        }
 
-        // 3. Become the Jewel
-        tl.to(mainObject.rotation, { x: Math.PI * 4, y: Math.PI * 4 }, 0.75);
-        tl.to(mainObject.scale, { x: 1.2, y: 1.2, z: 1.2 }, 0.75);
+        const sectionMarkers = [
+            '#mod1', '#mod2', '#mod3', '#mod4', '#mod5', '#bonus', '#conclusao'
+        ];
+        const geoIndices = [1, 2, 3, 3, 4, 4, 4];
+
+        sectionMarkers.forEach((marker, i) => {
+             ScrollTrigger.create({
+                trigger: marker,
+                start: "top center",
+                onEnter: () => changeGeometry(geoIndices[i]),
+                onEnterBack: () => changeGeometry(geoIndices[i-1] !== undefined ? geoIndices[i-1] : 0),
+            });
+        });
         
-        // Morphing illusion: We'll switch geometry here in a real project.
-        // For this prototype, we'll just make it brighter and more complex looking.
-        tl.to(material, { roughness: 0.05, metalness: 0.8, ior: 2.4, thickness: 0.2 }, 0.75);
-        
-        // Animate the light to make it shine
-        const jewelLight = new THREE.PointLight(0xfacc15, 0, 10);
-        mainObject.add(jewelLight);
-        tl.to(jewelLight, { intensity: 5 }, 0.75);
-
-        // Animation Loop
-        const clock = new THREE.Clock();
         function animate() {
-            const elapsedTime = clock.getElapsedTime();
-            particlesMesh.rotation.y = elapsedTime * 0.05;
-            renderer.render(scene, camera);
             requestAnimationFrame(animate);
+            renderer.render(scene, camera);
         }
         animate();
 
-        // Handle window resizing
         window.addEventListener('resize', () => {
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
